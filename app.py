@@ -5,7 +5,7 @@ import numpy as np
 
 # ML Packages
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.externals import joblib
+import pickle
 
 
 app = Flask(__name__)
@@ -30,7 +30,7 @@ def predict():
 	
 	# Loading our ML Model
 	naivebayes_model = open("models/naivebayesgendermodel.pkl","rb")
-	clf = joblib.load(naivebayes_model)
+	clf = pickle.load(naivebayes_model)
 
 	# Receives the input query from form
 	if request.method == 'POST':
